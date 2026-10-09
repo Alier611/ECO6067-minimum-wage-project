@@ -1,0 +1,46 @@
+{
+  "rows": 410,
+  "columns": 46,
+  "state_counts": {
+    "PA": 79,
+    "NJ": 331
+  },
+  "repeated_sheet_rows": [
+    {
+      "STATE": 0,
+      "SHEET": 407,
+      "CHAIN": 2
+    },
+    {
+      "STATE": 1,
+      "SHEET": 407,
+      "CHAIN": 4
+    }
+  ],
+  "status_counts": {
+    "0": 1,
+    "1": 399,
+    "2": 2,
+    "3": 6,
+    "4": 1,
+    "5": 1
+  },
+  "checks": {
+    "shape_410_by_46": true,
+    "no_exact_duplicate_rows": true,
+    "unique_state_sheet": true,
+    "state_codes_complete": true,
+    "chain_codes_complete": true,
+    "ownership_codes_complete": true,
+    "status_codes_complete": true,
+    "state_counts_79_331": true,
+    "permanent_closures_6": true,
+    "temporary_closures_4": true,
+    "employment_nonnegative_or_missing": true,
+    "wages_positive_or_missing": true
+  },
+  "notes": [
+    "SHEET alone is not unique; retain all observations.",
+    "Blank input fields remain missing."
+  ]
+}

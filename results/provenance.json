@@ -1,0 +1,10 @@
+{
+  "input_name": "public.csv",
+  "input_sha256": "45e6f4ac4928f7c9fcc2585a45e0467ecaa039f0b241f4c5a26cd290fd8e772b",
+  "source": "Student-provided course attachment; no independent author download yet.",
+  "software": {
+    "python": "3.12.14",
+    "pandas": "2.2.3",
+    "numpy": "2.3.5"
+  }
+}
