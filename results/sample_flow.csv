@@ -1,0 +1,8 @@
+sample,all,PA,NJ,excluded_from_raw,rule
+raw,410,79,331,0,All input observations; no deduplication by SHEET alone.
+table3_wave1,398,77,321,12,Available wave-1 FTE.
+table3_wave2,396,77,319,14,"Available base wave-2 FTE, permanent closures zero."
+table3_balanced,384,75,309,26,Both base FTE observations available.
+table3_temporary_zero,388,75,313,22,Both FTE available after temporary-closure zero sensitivity.
+table4_literal_both_wages,351,66,285,59,Balanced FTE plus literally both starting wages.
+table4_working,357,67,290,53,"Balanced FTE plus both wages, second wage exempt for permanent closures."

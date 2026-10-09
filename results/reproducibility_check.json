@@ -1,0 +1,17 @@
+{
+  "fresh_output_directory": true,
+  "file_hash_comparisons": {
+    "results/checks.json": true,
+    "results/data_audit.json": true,
+    "results/missing_values.csv": true,
+    "results/ownership_coverage.csv": true,
+    "results/provenance.json": true,
+    "results/sample_flow.csv": true,
+    "results/sample_summary.csv": true,
+    "results/阶段说明.md": true,
+    "data/processed/analysis.csv": true
+  },
+  "raw_sha256_unchanged": true,
+  "missing_input_message_verified": true,
+  "scope": "Preparation outputs only; core tables and extension not yet implemented."
+}

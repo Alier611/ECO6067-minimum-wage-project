@@ -18,6 +18,7 @@ American Economic Review 84(4), 772-793.
 python -m pip install -r requirements.txt
 python run_project.py --stage audit
 python run_project.py --stage prepare
+python check_reproducibility.py
 ```
 
 Windows 如需使用 `py`，将命令中的 `python` 换成 `py`。
