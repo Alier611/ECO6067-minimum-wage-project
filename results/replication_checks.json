@@ -1,0 +1,24 @@
+{
+  "sample_n": 357,
+  "dependent_mean": -0.23753501400560229,
+  "dependent_sd": 8.825484522270923,
+  "model_v_omitted_region_coefficients": {
+    "NORTHJ": 11.97923658298675,
+    "CENTRALJ": 11.97923658298675,
+    "SOUTHJ": 11.97923658298675,
+    "PA1": 11.979236582986772,
+    "PA2": 11.979236582986728
+  },
+  "author_program_model_v_variant": {
+    "model": "v_author_check_program",
+    "coefficient": 11.913064111479862,
+    "standard_error": 7.394409386517124,
+    "residual_sd": 8.740164644944672,
+    "controls_p_value": 0.3074909479904579,
+    "n": 357,
+    "co_owned_included": false,
+    "note": "Public author check.sas variant; not silently substituted for the printed ownership-control specification."
+  },
+  "checks": "Coefficient solvers, covariance constructions, normal equations, full rank and omitted-region invariance passed.",
+  "inference_note": "Classical SE reproduce the paper convention; HC1 is supplementary. Neither addresses only two policy jurisdictions."
+}

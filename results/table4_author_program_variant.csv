@@ -1,0 +1,2 @@
+model,coefficient,standard_error,residual_sd,controls_p_value,n,co_owned_included,note
+v_author_check_program,11.913064111479862,7.394409386517124,8.740164644944672,0.3074909479904579,357,False,Public author check.sas variant; not silently substituted for the printed ownership-control specification.

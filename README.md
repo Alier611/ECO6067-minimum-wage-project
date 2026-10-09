@@ -1,6 +1,6 @@
 # ECO6067: Minimum wage replication project
 
-Current stage: data audit and analysis-variable construction. This is a working
+Current stage: data audit, variable construction, and full Table 3 / Table 4 computation. This is a working
 project, not the final submission. No understanding quizzes are required.
 
 Paper: David Card and Alan B. Krueger (1994), *Minimum Wages and Employment:
@@ -18,11 +18,12 @@ American Economic Review 84(4), 772-793.
 python -m pip install -r requirements.txt
 python run_project.py --stage audit
 python run_project.py --stage prepare
+python run_project.py --stage replicate
 python check_reproducibility.py
 ```
 
 Windows 如需使用 `py`，将命令中的 `python` 换成 `py`。
-推荐 Python 3.11 或更新版本。本阶段使用 pandas 和 numpy；已验证的版本见
+推荐 Python 3.11 或更新版本。本阶段使用 pandas、numpy 和 scipy；已验证的版本见
 `requirements.txt` 及生成的 `results/provenance.json`。
 
 ## 结果位置
@@ -35,10 +36,18 @@ Windows 如需使用 `py`，将命令中的 `python` 换成 `py`。
 - `results/checks.json`: 关键数据检查，不是学生理解测验。
 - `data/processed/analysis.csv`: 原字段、派生变量及样本标记。
 - `results/阶段说明.md`: 无需读代码即可查看的中文进度说明。
+- `results/核心复现说明.md`: 完整Table 3 / Table 4、计算方法、原文对比和全部差异。
+- `results/replication_results.html`: 可用浏览器打开的静态结果表。
+- `results/table3_full.csv`, `results/table4_full.csv`: 未四舍五入的计算结果。
+- `results/paper_comparison.csv`: 每个数字的原文值、复现值和匹配状态。
+- `results/replication_checks.json`: 独立求解、协方差及地区基准检验。
 
 ## 来源与待确认事项
 
-目前使用学生上传的课程数据。尚未独立下载作者数据；不声称已完成该步骤。
+正式计算使用学生上传的课程数据。本阶段另已独立下载作者数据，并确认410行46列
+全部数值与缺失位置与课程CSV完全一致；证据见results/author_source_verification.json。
+作者数据来源：https://davidcard.berkeley.edu/data_sets.html
+可选重新核对命令：python verify_author_data.py（需要访问作者网站）。
 原始附件说明对应课程的 `01_DID.zip`。详见 `docs/data_sources.md`。
 Table 3 / Table 4 是当前准备目标，课程指定核心表图、报告字数、语言及截止日期
 仍需从课程补充要求核对。
@@ -48,16 +57,23 @@ Table 3 / Table 4 是当前准备目标，课程指定核心表图、报告字�
 
 ## 工作流与版本记录
 
-本阶段提供统一运行入口。后续将在此入口增加核心复现与独立拓展。
+本阶段提供统一运行入口，replicate从原始数据重新构建并复现全部核心表格。
+后续将在此入口增加独立拓展。
 Git 提交由 AI 助手以 `Codex AI Assistant` 身份创建，反映实际完成的阶段，
 不使用学生身份、不倒填日期，也不伪造过去的工作。
 本地 Git 仓库尚未连接或发布至 GitHub。
+
+核心表格已计算，但并非所有数字完全匹配。Table 3第3行采用明确记录的替代标准误
+估计，其原实现未恢复。Table 4第五列的公开作者核查程序省略所有权变量，
+得到11.91（7.39）；按论文表格标注加入该变量得到11.98（7.42）。
+两种规格并列报告，不通过隐瞒规格差异来凑数。作者程序变体的残差标准差和联合
+p值仍不匹配原文，不能声称第五列整列完全一致。
 
 ## 可重复性与局限
 
 清洗过程保留原始输入，不填补一般缺失值，不根据预期结论修改数据。
 关闭状态按论文规则处理，详见 `docs/analysis_rules.md`。
-第二期工资对永久关闭店的例外依据论文关闭店处理原则及357样本量的一致性核查；
-本项目尚未获得作者的原始分析程序。
+第二期工资对永久关闭店的例外已在作者公开check.sas的样本筛选语句中确认，
+也与357样本量一致。check.sas是公开核查程序，未宣称是当年期刊最终生产程序。
 仅有一个政策前时期，不能进行通常的政策前平行趋势检验。
 只有两个州，政策层面统计推断的局限应在最终报告中说明。

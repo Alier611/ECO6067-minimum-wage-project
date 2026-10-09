@@ -34,9 +34,9 @@ Table 4 working sample: require balanced FTE, initial wage, and second wage
 unless permanently closed. This retains the six permanently closed stores,
 whose second-period wage is absent, giving 357 observations in this input.
 The literal rule requiring both wages gives 351. Keep both counts in the audit.
-This exception is an explicit implementation interpretation, validated against
-the published sample and first-four-column coefficients; it is not asserted
-to be read from the unavailable original author code.
+Initially this exception was an explicit implementation interpretation, validated
+against the published sample and first-four-column coefficients. It has now been
+confirmed by the sample-selection statements in the public author check.sas.
 
 Record all masks separately. Do not drop missing values across all 46 columns.
 Future control-variable models must check missingness in their actual controls.
@@ -53,3 +53,20 @@ new extension. No causal mechanism is established solely by ownership comparison
 
 No student-understanding checks. Retain data, computational and reproducibility
 checks, and honest AI-use disclosure.
+
+## Table 3 standard errors and Table 4 source-code discrepancy
+
+Rows 1,2,4,5 use sample-mean standard errors, adding independent group variances
+for group contrasts. Row 3 compares available-case wave means, which need not
+contain the same stores. Use a restaurant-level influence-function variance:
+IF_i = N/n2 * R2_i*(FTE2_i-mean2) - N/n1 * R1_i*(FTE1_i-mean1).
+SE = sample_sd(IF)/sqrt(N); missing terms contribute zero to IF, not zero
+employment. This accounts for within-store covariance. The published row-3
+SE algorithm was not recovered; report the implementation difference explicitly.
+
+Table 4 main output follows printed specifications: chain and ownership controls
+in (ii),(iv),(v), and region controls in (v). Conventional OLS SE compare with
+the paper; HC1 is a separate diagnostic. Controls p is a joint exclusion F test.
+Public author check.sas omits ownership in the region model; report that variant
+separately rather than silently deleting a control. Its coefficient and SE match
+11.91 and 7.39; its residual SD and joint-controls p do not match all original cells.

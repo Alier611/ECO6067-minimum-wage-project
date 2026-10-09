@@ -5,6 +5,7 @@
   "software": {
     "python": "3.12.14",
     "pandas": "2.2.3",
-    "numpy": "2.3.5"
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
   }
 }

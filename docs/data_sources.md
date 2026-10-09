@@ -8,8 +8,17 @@ The exact input SHA-256 is recorded automatically in `results/provenance.json`.
 
 Use the original filename and preserve its bytes. Obtain it from the course
 download or the existing attachment, then copy it to the input path above.
-Original online author-data retrieval and redistribution terms have not yet
-been independently verified. No claim of independently sourced data is made.
+Originally the project used only the course input. In the core-replication stage
+the author archive was independently downloaded and numerically compared.
+Source page: https://davidcard.berkeley.edu/data_sets.html
+README: https://davidcard.berkeley.edu/readme/njmin-readme.txt
+Archive: https://davidcard.berkeley.edu/data_sets/njmin.zip
+Retrieval session date (Hong Kong): 2026-10-09.
+Actual archive members: check.sas, codebook, public.dat, read.me, survey1.nj,
+survey2.nj. SHA-256 values and exact 410x46 equality evidence are recorded in
+results/author_source_verification.json. Optional retrieval/comparison code:
+verify_author_data.py. No values or missing positions differed from course data.
+Public access alone is not treated as a verified redistribution license.
 Do not upload restricted data to GitHub. Restaurant-level raw and derived CSVs
 are currently ignored by Git; README instructions identify the required input.
 
@@ -17,3 +26,10 @@ Paper reference: Card and Krueger (1994), AER 84(4), pp. 772-793.
 FTE and closure rules: p. 775 and Table 3 notes, p. 780.
 Regression sample and wage-gap construction: pp. 779-781 and Table 4, p. 780.
 Printed p. 780 is PDF page 9 in the supplied file, not PDF page 780.
+
+The public check.sas program explicitly retains permanently closed stores when
+second-period wages are unavailable. Its region-adjusted level-change model
+excludes CO_OWNED, unlike the printed Table 4 ownership-control label. The project
+preserves both model specifications. The author README describes a book-related
+checking program; it does not prove this was the exact 1994 final table program.
+No third-party replication output is used as a benchmark.

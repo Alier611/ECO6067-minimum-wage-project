@@ -5,13 +5,21 @@
     "results/data_audit.json": true,
     "results/missing_values.csv": true,
     "results/ownership_coverage.csv": true,
+    "results/paper_comparison.csv": true,
     "results/provenance.json": true,
+    "results/replication_checks.json": true,
+    "results/replication_results.html": true,
     "results/sample_flow.csv": true,
     "results/sample_summary.csv": true,
+    "results/table3_full.csv": true,
+    "results/table4_all_coefficients.csv": true,
+    "results/table4_author_program_variant.csv": true,
+    "results/table4_full.csv": true,
+    "results/核心复现说明.md": true,
     "results/阶段说明.md": true,
     "data/processed/analysis.csv": true
   },
   "raw_sha256_unchanged": true,
   "missing_input_message_verified": true,
-  "scope": "Preparation outputs only; core tables and extension not yet implemented."
+  "scope": "Preparation and full Table 3 / Table 4 outputs; extension not yet implemented."
 }

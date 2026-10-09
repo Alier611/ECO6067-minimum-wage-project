@@ -7,6 +7,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import scipy
 
 ROOT = Path(__file__).resolve().parent
 
@@ -50,7 +51,7 @@ def audit(raw, out):
     provenance = {
         'input_name': raw.name, 'input_sha256': hashlib.sha256(raw.read_bytes()).hexdigest(),
         'source': 'Student-provided course attachment; no independent author download yet.',
-        'software': {'python': platform.python_version(), 'pandas': pd.__version__, 'numpy': np.__version__},
+        'software': {'python': platform.python_version(), 'pandas': pd.__version__, 'numpy': np.__version__, 'scipy': scipy.__version__},
     }
     write_json(out / 'provenance.json', provenance)
     return x, checks
@@ -157,21 +158,23 @@ SHEET=407出现在两个州，不能单独据此去重。
 {flow_text}
 
 以上是不同表格的独立样本定义，不是一条逐步删行的共同样本。
-Table 4的第二期工资例外是明确记录的实施解释，保留永久关闭店；
-其样本量与原文357一致，仍需在正式复现中核对每列结果。
+Table 4的第二期工资例外保留永久关闭店，已在作者公开核查程序中确认；
+其样本量与原文357一致，各列结果及对比见核心复现说明.md。
 
 ## 检查结果
 
 {len(checks)}项关键检查全部通过，其中包括3家餐厅的预先手算值核对。
 同一平衡样本上，均值差分得到DID {did:.10f}，
 简单回归得到 {coefficient:.10f}，二者一致。
-该数字只是计算核查；尚未生成完整Table 3、Table 4及标准误。
+该数字是数据准备阶段的计算核查；若运行replicate阶段，完整Table 3、Table 4及标准误
+另见核心复现说明.md和table3_full.csv、table4_full.csv。
 重新运行的一致性结果见 reproducibility_check.json（完成重跑后生成）。
 
 ## 下一步
 
-复现Table 3的完整行列与标准误，再复现Table 4各模型，生成原文对比表。
-Table 4第五列在先前试算中约11.98，原文11.91，差异仍待调查。
+当前生成的是数据准备说明。完整核心复现阶段的完成状态与差异调查
+另见核心复现说明.md。Table 4第五列已并列核对论文标注规格和作者程序规格，
+后者省略所有权变量，其主要系数和标准误与原文匹配。
 课程指定核心表图、报告字数、语言、截止日期待课程资料核对。
 独立拓展问题已预先记录：直营店与加盟店的就业反应是否不同。
 尚未估计拓展结果，不以结果显著与否挑选问题。
@@ -184,11 +187,12 @@ Table 4第五列在先前试算中约11.98，原文11.91，差异仍待调查。
 无需回答知识测验；后续继续保留数据、统计和可重复性检查。
 '''
     (out / '阶段说明.md').write_text(note, encoding='utf-8')
+    return z
 
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--stage', choices=['audit', 'prepare'], default='prepare')
+    p.add_argument('--stage', choices=['audit', 'prepare', 'replicate'], default='replicate')
     p.add_argument('--input', type=Path, default=ROOT / 'data/raw/public.csv')
     p.add_argument('--output-dir', type=Path, default=ROOT / 'results')
     p.add_argument('--processed-dir', type=Path, default=ROOT / 'data/processed')
@@ -197,8 +201,11 @@ def main():
         p.error('Missing public.csv. Copy the course attachment to data/raw/public.csv or use --input PATH.')
     before = hashlib.sha256(args.input.read_bytes()).hexdigest()
     x, checks = audit(args.input, args.output_dir)
-    if args.stage == 'prepare':
-        prepare(x, args.output_dir, args.processed_dir, checks)
+    if args.stage in ['prepare', 'replicate']:
+        z = prepare(x, args.output_dir, args.processed_dir, checks)
+        if args.stage == 'replicate':
+            from replicate_tables import replicate
+            replicate(z, args.output_dir)
     if hashlib.sha256(args.input.read_bytes()).hexdigest() != before:
         raise ValueError('Raw input unexpectedly changed.')
     print(f'{args.stage} complete: {len(x)} input rows; raw input unchanged.')
