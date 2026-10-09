@@ -1,6 +1,6 @@
 # ECO6067: Minimum wage replication project
 
-Current stage: data audit, variable construction, and full Table 3 / Table 4 computation. This is a working
+Current stage: data preparation, core-table replication and ownership heterogeneity extension. This is a working
 project, not the final submission. No understanding quizzes are required.
 
 Paper: David Card and Alan B. Krueger (1994), *Minimum Wages and Employment:
@@ -19,6 +19,7 @@ python -m pip install -r requirements.txt
 python run_project.py --stage audit
 python run_project.py --stage prepare
 python run_project.py --stage replicate
+python run_project.py --stage extend
 python check_reproducibility.py
 ```
 
@@ -41,6 +42,10 @@ Windows 如需使用 `py`，将命令中的 `python` 换成 `py`。
 - `results/table3_full.csv`, `results/table4_full.csv`: 未四舍五入的计算结果。
 - `results/paper_comparison.csv`: 每个数字的原文值、复现值和匹配状态。
 - `results/replication_checks.json`: 独立求解、协方差及地区基准检验。
+- `results/独立拓展说明.md`: 中文与必要英文的拓展问题、方法、结果和局限。
+- `results/extension_effects.csv`: 所有权组DID、直接组间差异、两种标准误与区间。
+- `results/extension_sample_cells.csv`: 每个拓展模型的四组样本覆盖。
+- `results/extension_checks.json`: 四组手算、方差核对、参照编码及单店影响检查。
 
 ## 来源与待确认事项
 
@@ -58,7 +63,8 @@ Table 3 / Table 4 是当前准备目标，课程指定核心表图、报告字�
 ## 工作流与版本记录
 
 本阶段提供统一运行入口，replicate从原始数据重新构建并复现全部核心表格。
-后续将在此入口增加独立拓展。
+extend从原始数据依次执行数据准备、核心复现和所有权独立拓展。
+check_reproducibility.py从空输出目录重跑全流程并核对文件。
 Git 提交由 AI 助手以 `Codex AI Assistant` 身份创建，反映实际完成的阶段，
 不使用学生身份、不倒填日期，也不伪造过去的工作。
 本地 Git 仓库尚未连接或发布至 GitHub。

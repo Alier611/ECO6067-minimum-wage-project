@@ -145,7 +145,8 @@ def prepare(x, out, processed, checks):
     note = f'''# ECO6067 阶段进度：数据审计与变量准备
 
 已跳过学生理解测验。已完成项目初始化、数据审计和变量构建。
-本阶段是正式复现的准备，尚未完成最终报告或独立拓展。
+本文件是数据准备说明；若运行extend，独立拓展结果另见独立拓展说明.md。
+尚未完成最终提交报告。
 
 ## 数据与样本
 
@@ -177,7 +178,7 @@ Table 4的第二期工资例外保留永久关闭店，已在作者公开核查�
 后者省略所有权变量，其主要系数和标准误与原文匹配。
 课程指定核心表图、报告字数、语言、截止日期待课程资料核对。
 独立拓展问题已预先记录：直营店与加盟店的就业反应是否不同。
-尚未估计拓展结果，不以结果显著与否挑选问题。
+若运行extend阶段，拓展结果已估计并另行报告；不以结果显著与否挑选问题。
 
 ## 使用和提交
 
@@ -192,7 +193,7 @@ Table 4的第二期工资例外保留永久关闭店，已在作者公开核查�
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--stage', choices=['audit', 'prepare', 'replicate'], default='replicate')
+    p.add_argument('--stage', choices=['audit', 'prepare', 'replicate', 'extend'], default='extend')
     p.add_argument('--input', type=Path, default=ROOT / 'data/raw/public.csv')
     p.add_argument('--output-dir', type=Path, default=ROOT / 'results')
     p.add_argument('--processed-dir', type=Path, default=ROOT / 'data/processed')
@@ -201,11 +202,14 @@ def main():
         p.error('Missing public.csv. Copy the course attachment to data/raw/public.csv or use --input PATH.')
     before = hashlib.sha256(args.input.read_bytes()).hexdigest()
     x, checks = audit(args.input, args.output_dir)
-    if args.stage in ['prepare', 'replicate']:
+    if args.stage in ['prepare', 'replicate', 'extend']:
         z = prepare(x, args.output_dir, args.processed_dir, checks)
-        if args.stage == 'replicate':
+        if args.stage in ['replicate', 'extend']:
             from replicate_tables import replicate
             replicate(z, args.output_dir)
+        if args.stage == 'extend':
+            from ownership_extension import run_extension
+            run_extension(z, args.output_dir)
     if hashlib.sha256(args.input.read_bytes()).hexdigest() != before:
         raise ValueError('Raw input unexpectedly changed.')
     print(f'{args.stage} complete: {len(x)} input rows; raw input unchanged.')

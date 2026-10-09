@@ -44,6 +44,7 @@ def fit_ols(y, frame):
     if not np.allclose(covariance, covariance_check, rtol=1e-8, atol=1e-8):
         raise ValueError('Independent covariance calculation disagreement.')
     return {'beta': beta, 'se': standard_error, 'hc1_se': np.sqrt(np.diag(hc1)),
+            'covariance':covariance, 'hc1_covariance':hc1,
             'sse': sse, 'df': n - k, 'n': n, 'k': k, 'residual_sd': np.sqrt(s2),
             'terms': ['constant'] + list(frame.columns)}
 
@@ -298,9 +299,9 @@ OLS系数用两种求解方法核对；协方差用矩阵逆和SVD两种方法�
 
 ## 下一阶段
 
-按预先记录的问题开展独立拓展：直营店与加盟店的就业反应是否不同。
+若已运行extend阶段，预先记录的所有权独立拓展结果见独立拓展说明.md。
 课程指定核心表图、字数、语言及日期仍需从课程补充说明核对。
-尚未完成拓展、最终报告或GitHub发布。
+本文件只报告核心复现；最终报告或GitHub发布尚未完成。
 '''
     (out / '核心复现说明.md').write_text(report, encoding='utf-8')
     # Human-readable static report: generated numbers only, no app or network.

@@ -60,3 +60,21 @@ The public program is a checking program for book-related data; it is not falsel
 identified as the exact original journal-production program. No SAS code was copied
 into the analysis implementation; a short model statement and source hashes are
 retained as evidence. Independent acquisition is real, not just a located URL.
+
+## Independent ownership extension
+
+Before estimating results AI committed docs/extension_plan.md, defining the
+primary model, eight total specifications and uncertainty/influence checks.
+AI estimated state x baseline-ownership interactions with chain controls, using
+the 357-store core sample, and retained all prespecified sensitivity outputs.
+Direct group-difference tests were used; no significance-comparison shortcut.
+Uncertainty uses HC1 with residual-df t approximation, clearly labeled as
+restaurant-level diagnostics rather than definitive two-state policy inference.
+AI checked unadjusted contrasts against four-cell means, HC1 variance against
+direct four-cell residual sums, and company-effect covariance via ownership
+reference reversal. Every model runs shared independent OLS checks.
+All 357 leave-one-store-out estimates were calculated; no outliers were deleted
+from the main model to change the result. The main difference is imprecise and
+all eight model intervals include zero. Results were retained without selecting
+a more significant alternative or claiming identical effects.
+Fresh-run evidence appears in results/reproducibility_check.json.

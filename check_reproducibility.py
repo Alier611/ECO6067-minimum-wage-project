@@ -1,4 +1,4 @@
-"""Rebuild into empty folders and compare preparation and core-table outputs."""
+"""Rebuild into empty folders and compare preparation, core tables and extension."""
 import hashlib
 import json
 from pathlib import Path
@@ -19,7 +19,7 @@ def main():
     with tempfile.TemporaryDirectory(prefix='eco6067_repeat_') as d:
         folder = Path(d)
         out, processed = folder / 'results', folder / 'processed'
-        subprocess.run([sys.executable, str(ROOT / 'run_project.py'), '--stage', 'replicate',
+        subprocess.run([sys.executable, str(ROOT / 'run_project.py'), '--stage', 'extend',
                         '--input', str(raw), '--output-dir', str(out),
                         '--processed-dir', str(processed)], check=True)
         comparisons = {}
@@ -37,7 +37,7 @@ def main():
         raise RuntimeError('Original input changed.')
     report = {'fresh_output_directory': True, 'file_hash_comparisons': comparisons,
               'raw_sha256_unchanged': True, 'missing_input_message_verified': True,
-              'scope': 'Preparation and full Table 3 / Table 4 outputs; extension not yet implemented.'}
+              'scope': 'Preparation, full Table 3 / Table 4 outputs and prespecified ownership extension.'}
     (ROOT / 'results/reproducibility_check.json').write_text(json.dumps(report, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     print(f'Reproducibility check passed: {len(comparisons)} files identical; raw input unchanged.')
 

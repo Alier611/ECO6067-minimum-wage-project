@@ -1,0 +1,31 @@
+{
+  "primary_n": 357,
+  "balanced_n": 384,
+  "temporary_zero_n": 361,
+  "four_cell_manual_contrasts": {
+    "franchise_DID": 3.1317951061021425,
+    "company_owned_DID": 2.036502849002849,
+    "company_minus_franchise": -1.0952922570992936
+  },
+  "four_cell_mean_vs_regression_check": true,
+  "four_cell_direct_variance_vs_HC1_check": true,
+  "ownership_reference_reversal_check": true,
+  "sum_contrast_uses_covariance": true,
+  "coefficient_and_covariance_independent_checks": "Passed for every main, sensitivity and store-deletion model via shared fit_ols.",
+  "sensitivity_specifications": [
+    "unadjusted_balanced",
+    "primary_chain_adjusted",
+    "broad_balanced_chain_adjusted",
+    "temporary_closures_zero",
+    "exclude_chain_1",
+    "exclude_chain_2",
+    "exclude_chain_3",
+    "exclude_chain_4"
+  ],
+  "store_deletion_count": 357,
+  "store_deletion_interaction_min": -1.6114965391768612,
+  "store_deletion_interaction_max": -0.0702315564786209,
+  "store_deletion_max_absolute_change": 0.8721352131578479,
+  "uncertainty": "HC1 plus residual-df Student t approximation; restaurant-level model diagnostics only.",
+  "identification": "No pre-trend test is possible. Two states and potential ownership-specific state shocks prevent strong causal heterogeneity conclusions."
+}
