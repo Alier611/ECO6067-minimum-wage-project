@@ -50,7 +50,7 @@ def audit(raw, out):
     write_json(out / 'data_audit.json', report)
     provenance = {
         'input_name': raw.name, 'input_sha256': hashlib.sha256(raw.read_bytes()).hexdigest(),
-        'source': 'Student-provided course attachment; no independent author download yet.',
+        'source': 'Student-provided course attachment. Independent author-source comparison is recorded separately in author_source_verification.json.',
         'software': {'python': platform.python_version(), 'pandas': pd.__version__, 'numpy': np.__version__, 'scipy': scipy.__version__},
     }
     write_json(out / 'provenance.json', provenance)

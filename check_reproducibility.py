@@ -27,6 +27,12 @@ def main():
             original = ROOT / 'results' / path.name
             comparisons['results/' + path.name] = original.is_file() and sha(original) == sha(path)
         comparisons['data/processed/analysis.csv'] = sha(ROOT / 'data/processed/analysis.csv') == sha(processed / 'analysis.csv')
+        report_out = folder / 'report'
+        subprocess.run([sys.executable, str(ROOT / 'build_report.py'), '--results', str(out),
+                        '--output', str(report_out)], check=True)
+        for path in sorted(report_out.iterdir()):
+            original = ROOT / 'report' / path.name
+            comparisons['report/' + path.name] = original.is_file() and sha(original) == sha(path)
         if not all(comparisons.values()):
             raise RuntimeError('Repeat run differs: ' + ', '.join(k for k, v in comparisons.items() if not v))
         missing = subprocess.run([sys.executable, str(ROOT / 'run_project.py'), '--input', str(folder / 'absent.csv')], capture_output=True, text=True)
@@ -37,7 +43,7 @@ def main():
         raise RuntimeError('Original input changed.')
     report = {'fresh_output_directory': True, 'file_hash_comparisons': comparisons,
               'raw_sha256_unchanged': True, 'missing_input_message_verified': True,
-              'scope': 'Preparation, full Table 3 / Table 4 outputs and prespecified ownership extension.'}
+              'scope': 'Preparation, full Table 3 / Table 4 outputs, prespecified ownership extension, and regenerated PDF/Markdown report.'}
     (ROOT / 'results/reproducibility_check.json').write_text(json.dumps(report, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     print(f'Reproducibility check passed: {len(comparisons)} files identical; raw input unchanged.')
 

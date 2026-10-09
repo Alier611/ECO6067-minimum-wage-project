@@ -23,9 +23,13 @@
     "results/核心复现说明.md": true,
     "results/独立拓展说明.md": true,
     "results/阶段说明.md": true,
-    "data/processed/analysis.csv": true
+    "data/processed/analysis.csv": true,
+    "report/AI_USE_DISCLOSURE.md": true,
+    "report/ECO6067_empirical_report.md": true,
+    "report/ECO6067_empirical_report.pdf": true,
+    "report/report_checks.json": true
   },
   "raw_sha256_unchanged": true,
   "missing_input_message_verified": true,
-  "scope": "Preparation, full Table 3 / Table 4 outputs and prespecified ownership extension."
+  "scope": "Preparation, full Table 3 / Table 4 outputs, prespecified ownership extension, and regenerated PDF/Markdown report."
 }

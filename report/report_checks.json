@@ -1,0 +1,17 @@
+{
+  "pages": 9,
+  "report_table_source": "Checked CSV/JSON outputs; original comparison values come from separately transcribed benchmarks.",
+  "required_numeric_strings_present": [
+    "-0.942",
+    "2.579",
+    "0.715",
+    "11.91 (7.39)",
+    "23.33",
+    "357",
+    "2.75"
+  ],
+  "markdown_word_count": 3720,
+  "all_tables_generated_from_outputs": true,
+  "equations_rendered_as_math": true,
+  "layout_note": "Automated checks do not replace visual inspection of rendered pages."
+}

@@ -1,7 +1,7 @@
 # ECO6067: Minimum wage replication project
 
-Current stage: data preparation, core-table replication and ownership heterogeneity extension. This is a working
-project, not the final submission. No understanding quizzes are required.
+Current stage: completed local analysis and nine-page English report, with AI disclosure and a submission guide.
+GitHub publication and course-specific requirements remain to be finalized. No understanding quizzes are required.
 
 Paper: David Card and Alan B. Krueger (1994), *Minimum Wages and Employment:
 A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania*,
@@ -20,15 +20,22 @@ python run_project.py --stage audit
 python run_project.py --stage prepare
 python run_project.py --stage replicate
 python run_project.py --stage extend
+python build_report.py
 python check_reproducibility.py
 ```
 
 Windows 如需使用 `py`，将命令中的 `python` 换成 `py`。
-推荐 Python 3.11 或更新版本。本阶段使用 pandas、numpy 和 scipy；已验证的版本见
+建议 Python 3.12 或 3.13。分析和报告所用依赖的已验证版本见
 `requirements.txt` 及生成的 `results/provenance.json`。
+重跑最终分析仅需 `python run_project.py --stage extend`，随后运行报告生成和检查命令。
+报告字体及其许可证已随包提供，不依赖某台电脑的字体路径。
 
 ## 结果位置
 
+- `report/ECO6067_empirical_report.pdf`: 九页英文实证报告，含全部核心表格、拓展、局限和AI披露。
+- `report/ECO6067_empirical_report.md`: 可编辑的正文来源；表格来自实际计算输出。
+- `report/AI_USE_DISCLOSURE.md`: 单独的AI使用披露。
+- `SUBMISSION_GUIDE_ZH.md`: 无代码基础适用的最终提交说明。
 - `results/data_audit.json`: 数据结构、缺失情况、状态编码及检查。
 - `results/missing_values.csv`: 各字段缺失数量。
 - `results/sample_flow.csv`: 各分析样本数量与筛选说明。

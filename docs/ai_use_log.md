@@ -78,3 +78,19 @@ from the main model to change the result. The main difference is imprecise and
 all eight model intervals include zero. Results were retained without selecting
 a more significant alternative or claiming identical effects.
 Fresh-run evidence appears in results/reproducibility_check.json.
+
+## Report and local submission package
+
+AI generated a nine-page English PDF report from the saved replication and
+extension outputs, alongside editable Markdown and a separate disclosure.
+Every rendered PDF page was visually inspected; tables, equations, symbols,
+page breaks and page numbers were readable without clipping or overlap.
+The initial build overflowed to eleven pages; table padding was reduced while
+retaining the body font size, resulting in nine correctly laid-out pages.
+Font files and their license were included for portable report generation.
+AI corrected a stale input-provenance description to point to the separately
+completed author-source verification rather than claiming no download occurred.
+The repeat-run check now regenerates the report too: 27 output/processed/report
+files matched SHA-256 exactly and raw input bytes were unchanged.
+A Chinese submission guide lists the remaining course-specific checks and
+GitHub publication. No publication or student identity information is fabricated.
