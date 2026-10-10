@@ -26,7 +26,7 @@ course 01_DID.zip and places it at data/raw/public.csv. Use its original bytes
 for the stored input SHA-256 and exact repeat-run check. The repository includes
 the final processed data, full code and source-access instructions.
 
-Repository: https://github.com/Alier611/ECO6067-minimum-wage-project
+Repository: https://github.com/Alier611/WangRuiYue_3036761820
 Publication and processed-data push were confirmed by the student's terminal
 and repository screenshots on 10 October 2026. They do not constitute a new
 independent raw-data comparison; that completed comparison is recorded above.

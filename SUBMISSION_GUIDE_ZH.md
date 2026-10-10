@@ -13,7 +13,7 @@
 | 指定核心表图 | 学生已核对没有指定表图；本项目复现Table 3和Table 4 | 已确认 |
 | 字数、格式 | 学生已核对没有额外要求；报告为英文九页 | 按课程通知的截止时间提交 |
 | 姓名、学号 | 已加入报告首页：WANG Ruiyue / 3036761820 | 使用最新报告版本 |
-| GitHub仓库网址 | 已公开发布：https://github.com/Alier611/ECO6067-minimum-wage-project | 分享该仓库URL给教学团队 |
+| GitHub仓库网址 | 已公开发布：https://github.com/Alier611/WangRuiYue_3036761820 | 分享该仓库URL给教学团队 |
 | 原始输入 | 使用你提供的public.csv | 本包不重复提供原始CSV；使用课程附件或docs/data_sources.md的作者数据获取说明 |
 | 处理后数据 | 学生确认可上传，已将data/processed/analysis.csv提交并推送 | 仓库中可直接下载；原始CSV仍不公开 |
 | AI披露 | 报告第9部分及独立文件已完成 | 如实际使用过程后来改变，更新披露，不声称自己执行了未执行的检查 |
@@ -70,7 +70,7 @@ git push -u origin main
 | 结果、对比及验证记录 | results/及report/report_checks.json | 保留在完整项目中，支持报告中的结果与检查 |
 | AI使用披露 | 报告第9部分；report/AI_USE_DISCLOSURE.md；docs/ai_use_log.md | 已随报告和项目提供；仅在课程另有独立入口时再单独上传 |
 | 真实版本历史 | 项目内.git目录 | 推送已有Git历史；仅网页上传最终文件不会保留该历史 |
-| GitHub仓库网址 | https://github.com/Alier611/ECO6067-minimum-wage-project | 按要求分享此公开仓库URL |
+| GitHub仓库网址 | https://github.com/Alier611/WangRuiYue_3036761820 | 按要求分享此公开仓库URL |
 
 实际操作顺序：先完成GitHub发布和访问检查，再提交仓库URL，以及平台另行要求的PDF或ZIP。操作之间无需间隔几天。ZIP是完整项目的交付备份，不能替代要求中的GitHub网址。四张图片中也未要求单独提交选题书或开题报告。
 

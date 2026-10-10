@@ -6,7 +6,7 @@ The analysis, nine-page English report, AI disclosure and reproducibility workfl
 The student published the repository and confirmed that the course imposes no additional
 word-count, formatting or assigned-table requirements. The selected replication covers Tables 3 and 4.
 
-Repository: https://github.com/Alier611/ECO6067-minimum-wage-project
+Repository: https://github.com/Alier611/WangRuiYue_3036761820
 
 The permitted processed data are included in `data/processed/analysis.csv`.
 The original course CSV is not redistributed; its access and input location are described below.
