@@ -75,6 +75,7 @@ def build(results,output):
     p('Minimum Wages and Employment',title)
     p('Replication and an ownership heterogeneity extension',heading)
     p('ECO6067 Individual Project | 9 October 2026',small)
+    p('Name: WANG Ruiyue | Student ID: 3036761820',normal)
     h('Abstract')
     p(f'This project reproduces the central employment comparisons in Card and Krueger (1994) using the New Jersey and Pennsylvania fast-food survey. The balanced-sample difference in differences is {a[(a.row==4)&a.column.eq("NJ_minus_PA")].estimate.iloc[0]:.2f} full-time-equivalent employees per restaurant. The first four regression models reproduce the published main coefficients and standard errors at printed precision. Small differences remain in the descriptive table, including a disclosed alternative standard-error calculation for its available-case mean change. The public author checking program also reveals a specification difference in the fifth regression model.')
     p(f'The independent extension asks whether employment responses differ between company-owned and franchised restaurants. In the {int(difference.n)}-store chain-adjusted model, the company-owned minus franchise contrast is {difference.estimate:.3f} FTE, with an HC1 standard error of {difference.hc1_se:.3f} and a 95% interval of [{difference.hc1_ci_lower:.3f}, {difference.hc1_ci_upper:.3f}]. The estimates do not precisely establish an ownership difference. Restaurant-level uncertainty estimates do not resolve the limitations of having only two policy jurisdictions.')
@@ -196,7 +197,7 @@ def build(results,output):
     (output/'AI_USE_DISCLOSURE.md').write_text('# AI use disclosure\n\n'+'\n\n'.join('## '+h+'\n\n'+t for h,t in disclosure)+'\n',encoding='utf-8')
     from pypdf import PdfReader
     reader=PdfReader(pdf);text='\n'.join(page.extract_text() or '' for page in reader.pages)
-    must=[f'{difference.estimate:.3f}',f'{difference.hc1_se:.3f}',f'{difference.hc1_t_approx_p_value:.3f}','11.91 (7.39)','23.33','357','2.75']
+    must=[f'{difference.estimate:.3f}',f'{difference.hc1_se:.3f}',f'{difference.hc1_t_approx_p_value:.3f}','11.91 (7.39)','23.33','357','2.75','WANG Ruiyue','3036761820']
     if not all(value in text for value in must):raise ValueError('Report number extraction check failed.')
     if len(reader.pages)!=9:raise ValueError(f'Unexpected page count {len(reader.pages)}; inspect layout.')
     verification={'pages':len(reader.pages),'report_table_source':'Checked CSV/JSON outputs; original comparison values come from separately transcribed benchmarks.',

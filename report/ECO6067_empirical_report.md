@@ -4,6 +4,8 @@ Replication and an ownership heterogeneity extension
 
 ECO6067 Individual Project | 9 October 2026
 
+Name: WANG Ruiyue | Student ID: 3036761820
+
 Abstract
 
 This project reproduces the central employment comparisons in Card and Krueger (1994) using the New Jersey and Pennsylvania fast-food survey. The balanced-sample difference in differences is 2.75 full-time-equivalent employees per restaurant. The first four regression models reproduce the published main coefficients and standard errors at printed precision. Small differences remain in the descriptive table, including a disclosed alternative standard-error calculation for its available-case mean change. The public author checking program also reveals a specification difference in the fifth regression model.

@@ -94,3 +94,12 @@ The repeat-run check now regenerates the report too: 27 output/processed/report
 files matched SHA-256 exactly and raw input bytes were unchanged.
 A Chinese submission guide lists the remaining course-specific checks and
 GitHub publication. No publication or student identity information is fabricated.
+
+## Identity and submission schedule update
+
+The user supplied the name WANG Ruiyue and student ID 3036761820. AI added
+these to the report's first page and to its automatic text checks. AI reread
+all four supplied instruction images; they specify deliverables and real Git
+history, but no staggered filing dates or mandatory delay between submissions.
+The Chinese guide now distinguishes the final deliverables from the order of
+publishing and submitting them. No submission dates were invented.
