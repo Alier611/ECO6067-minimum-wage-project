@@ -10,15 +10,15 @@
 
 | 事项 | 当前状态 | 操作 |
 | --- | --- | --- |
-| 指定核心表图 | 当前选择原文Table 3和Table 4 | 对照课程补充要求，确认老师没有指定别的目标 |
-| 字数、语言、格式、截止日期 | 四张要求图片未明确这些细节 | 在课程平台核对；当前版本为英文九页 |
+| 指定核心表图 | 学生已核对没有指定表图；本项目复现Table 3和Table 4 | 已确认 |
+| 字数、格式 | 学生已核对没有额外要求；报告为英文九页 | 按课程通知的截止时间提交 |
 | 姓名、学号 | 已加入报告首页：WANG Ruiyue / 3036761820 | 使用最新报告版本 |
-| GitHub仓库网址 | 尚未发布 | 建立或指定仓库，上传完整Git历史，提供老师可访问的网址 |
+| GitHub仓库网址 | 已公开发布：https://github.com/Alier611/ECO6067-minimum-wage-project | 分享该仓库URL给教学团队 |
 | 原始输入 | 使用你提供的public.csv | 本包不重复提供原始CSV；使用课程附件或docs/data_sources.md的作者数据获取说明 |
-| 处理后数据 | 包内data/processed/analysis.csv已提供 | 当前Git忽略餐厅级CSV；发布前落实老师访问处理后数据的方式和适用再分发条件，不能认为一次push自动包含这些文件 |
+| 处理后数据 | 学生确认可上传，已将data/processed/analysis.csv提交并推送 | 仓库中可直接下载；原始CSV仍不公开 |
 | AI披露 | 报告第9部分及独立文件已完成 | 如实际使用过程后来改变，更新披露，不声称自己执行了未执行的检查 |
 
-这张表是提交条件核对，不是知识测验。尚未发布的GitHub网址不能填成已经完成。
+公开状态、最初8次阶段提交和处理后数据推送已通过学生提供的截图确认。此处未声称学生亲自运行了Python计算。
 
 ## 本地重跑：可直接让AI执行
 
@@ -64,13 +64,13 @@ git push -u origin main
 | --- | --- | --- |
 | 英文实证报告 | report/ECO6067_empirical_report.pdf | 放入GitHub完整项目；课程若另有PDF上传入口，再单独上传 |
 | 原始数据或合规获取说明 | 课程public.csv；docs/data_sources.md | 原始CSV不重复包含在ZIP；保留课程附件，按数据权限提供给教学团队或使用说明。不可把受限数据公开发布 |
-| 最终处理后数据 | data/processed/analysis.csv | ZIP内已有；发布仓库前落实教学团队访问方式，当前Git默认忽略CSV |
+| 最终处理后数据 | data/processed/analysis.csv | 已在公开仓库提供，不必另外重复上传，除非课程平台要求 |
 | 完整代码与依赖 | run_project.py、replicate_tables.py、ownership_extension.py、build_report.py、verify_author_data.py、check_reproducibility.py、requirements.txt | 在完整项目中一起提交，不必逐个上传 |
 | 重现说明及可重复使用工作流 | README.md及上述运行入口 | 在完整项目中一起提交 |
 | 结果、对比及验证记录 | results/及report/report_checks.json | 保留在完整项目中，支持报告中的结果与检查 |
 | AI使用披露 | 报告第9部分；report/AI_USE_DISCLOSURE.md；docs/ai_use_log.md | 已随报告和项目提供；仅在课程另有独立入口时再单独上传 |
 | 真实版本历史 | 项目内.git目录 | 推送已有Git历史；仅网页上传最终文件不会保留该历史 |
-| GitHub仓库网址 | 尚未发布 | 按要求分享可被教学团队访问、克隆或下载的仓库URL |
+| GitHub仓库网址 | https://github.com/Alier611/ECO6067-minimum-wage-project | 按要求分享此公开仓库URL |
 
 实际操作顺序：先完成GitHub发布和访问检查，再提交仓库URL，以及平台另行要求的PDF或ZIP。操作之间无需间隔几天。ZIP是完整项目的交付备份，不能替代要求中的GitHub网址。四张图片中也未要求单独提交选题书或开题报告。
 

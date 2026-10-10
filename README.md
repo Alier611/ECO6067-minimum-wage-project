@@ -1,7 +1,15 @@
 # ECO6067: Minimum wage replication project
 
-Current stage: completed local analysis and nine-page English report, with AI disclosure and a submission guide.
-GitHub publication and course-specific requirements remain to be finalized. No understanding quizzes are required.
+Student: **WANG Ruiyue**, student ID **3036761820**.
+
+The analysis, nine-page English report, AI disclosure and reproducibility workflow are complete.
+The student published the repository and confirmed that the course imposes no additional
+word-count, formatting or assigned-table requirements. The selected replication covers Tables 3 and 4.
+
+Repository: https://github.com/Alier611/ECO6067-minimum-wage-project
+
+The permitted processed data are included in `data/processed/analysis.csv`.
+The original course CSV is not redistributed; its access and input location are described below.
 
 Paper: David Card and Alan B. Krueger (1994), *Minimum Wages and Employment:
 A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania*,
@@ -9,9 +17,10 @@ American Economic Review 84(4), 772-793.
 
 ## 中文操作说明
 
-1. 解压本项目包。保留其中的 `.git` 文件夹，它包含真实的阶段提交记录。
-2. 将你已有的课程附件 `public.csv` 复制到 `data/raw/public.csv`。
-   包内不重复提供原始数据；请使用你原来的附件。
+1. 克隆本仓库，或通过GitHub的Code菜单下载项目。克隆会同时保留Git提交历史。
+2. 从ECO6067课程的 `01_DID.zip` 取得原始 `public.csv`，复制到 `data/raw/public.csv`。
+   原始课程数据不在公开仓库中；教学团队可使用课程已提供的相同附件。
+   已提交的最终处理后数据位于 `data/processed/analysis.csv`。
 3. 在本文件所在目录运行下面的命令。AI 可以协助运行，无需自行编写代码。
 
 ```bash
@@ -54,27 +63,35 @@ Windows 如需使用 `py`，将命令中的 `python` 换成 `py`。
 - `results/extension_sample_cells.csv`: 每个拓展模型的四组样本覆盖。
 - `results/extension_checks.json`: 四组手算、方差核对、参照编码及单店影响检查。
 
-## 来源与待确认事项
+## 来源、数据访问与课程确认
 
 正式计算使用学生上传的课程数据。本阶段另已独立下载作者数据，并确认410行46列
 全部数值与缺失位置与课程CSV完全一致；证据见results/author_source_verification.json。
 作者数据来源：https://davidcard.berkeley.edu/data_sets.html
 可选重新核对命令：python verify_author_data.py（需要访问作者网站）。
 原始附件说明对应课程的 `01_DID.zip`。详见 `docs/data_sources.md`。
-Table 3 / Table 4 是当前准备目标，课程指定核心表图、报告字数、语言及截止日期
-仍需从课程补充要求核对。
+学生已核对课程没有额外字数、格式或指定表图要求，本项目复现原文Table 3 / Table 4。
+截止时间仍以课程平台通知为准；本项目不自行设定截止日期。
 
-原始和处理后餐厅级数据默认不加入 Git；在独立核实公开再分发条件前，不推送
-这些文件。仓库提供输入位置及获取说明。论文 PDF 也不重复纳入项目。
+依据学生对课程许可范围的确认，处理后的 `data/processed/analysis.csv` 已加入公开仓库。
+原始课程CSV不公开上传；不要通过上传完整附件或其他文件绕过原始数据的访问限制。
+仓库提供课程输入获取说明及作者数据来源。原始论文PDF不重复纳入项目，生成的项目报告PDF已提交。
+
+For the teaching team: obtain `public.csv` from the course `01_DID.zip` and place it at
+`data/raw/public.csv` before rebuilding from raw input. The submitted processed file contains
+410 restaurant rows, original columns, derived FTE/GAP variables and sample flags. Full raw-input
+reproduction and the SHA-256 repeat check require the original course CSV bytes. The public author
+archive was separately acquired and all values and missing positions were verified against that CSV;
+`verify_author_data.py` rechecks equality after the course input is present.
 
 ## 工作流与版本记录
 
 本阶段提供统一运行入口，replicate从原始数据重新构建并复现全部核心表格。
 extend从原始数据依次执行数据准备、核心复现和所有权独立拓展。
 check_reproducibility.py从空输出目录重跑全流程并核对文件。
-Git 提交由 AI 助手以 `Codex AI Assistant` 身份创建，反映实际完成的阶段，
-不使用学生身份、不倒填日期，也不伪造过去的工作。
-本地 Git 仓库尚未连接或发布至 GitHub。
+最初8次Git提交由AI助手创建，记录规划、审计、准备、复现、拓展计划、拓展估计、报告和身份更新。
+学生随后手动发布仓库，并提交处理后数据。阶段记录保留实际身份和时间，不倒填或改写历史。
+仓库已经公开发布，教学团队可以使用上面的URL访问、克隆或下载。
 
 核心表格已计算，但并非所有数字完全匹配。Table 3第3行采用明确记录的替代标准误
 估计，其原实现未恢复。Table 4第五列的公开作者核查程序省略所有权变量，

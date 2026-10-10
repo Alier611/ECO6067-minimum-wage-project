@@ -103,3 +103,16 @@ all four supplied instruction images; they specify deliverables and real Git
 history, but no staggered filing dates or mandatory delay between submissions.
 The Chinese guide now distinguishes the final deliverables from the order of
 publishing and submitting them. No submission dates were invented.
+
+## Student-led publication on 10 October 2026
+
+The student confirmed that no additional word-count, formatting or assigned-table
+requirements apply. AI provided Git command-line instructions; the student
+executed the actual publication on their Mac. Terminal and repository screenshots
+confirmed the public repository, preserved eight assistant-stage commits, and
+the additional permitted processed-data commit a6ef125. Raw course CSV was not
+uploaded. The student clarified that processed CSV publication is allowed.
+AI prepared a documentation patch reflecting this state. This is not a claim
+that AI logged into the student's account, pushed changes or independently
+audited all live repository contents. Data calculations and report numbers
+were unchanged; earlier computational validation remains the relevant evidence.

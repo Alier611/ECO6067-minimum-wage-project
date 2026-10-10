@@ -2,6 +2,7 @@ __pycache__/
 .venv/
 data/raw/*.csv
 data/processed/*.csv
+!data/processed/analysis.csv
 *.zip
 *.pdf
 *.DS_Store

@@ -19,8 +19,17 @@ survey2.nj. SHA-256 values and exact 410x46 equality evidence are recorded in
 results/author_source_verification.json. Optional retrieval/comparison code:
 verify_author_data.py. No values or missing positions differed from course data.
 Public access alone is not treated as a verified redistribution license.
-Do not upload restricted data to GitHub. Restaurant-level raw and derived CSVs
-are currently ignored by Git; README instructions identify the required input.
+The student confirmed that the processed CSV may be uploaded and manually
+published data/processed/analysis.csv. Raw course data remain excluded from Git.
+For raw-input reproduction, the teaching team obtains public.csv from the
+course 01_DID.zip and places it at data/raw/public.csv. Use its original bytes
+for the stored input SHA-256 and exact repeat-run check. The repository includes
+the final processed data, full code and source-access instructions.
+
+Repository: https://github.com/Alier611/ECO6067-minimum-wage-project
+Publication and processed-data push were confirmed by the student's terminal
+and repository screenshots on 10 October 2026. They do not constitute a new
+independent raw-data comparison; that completed comparison is recorded above.
 
 Paper reference: Card and Krueger (1994), AER 84(4), pp. 772-793.
 FTE and closure rules: p. 775 and Table 3 notes, p. 780.
